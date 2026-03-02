@@ -24,8 +24,9 @@ If you would like to use this project as reference, please contact the project a
 
 ## 🎥 Project Demo
 
-![Project Demo](assets/demo.gif)
+🚧 The demo is currently under development.
 
+The project is in active development phase.
 ---
 
 ## 👥 Group Project – 6th Semester
