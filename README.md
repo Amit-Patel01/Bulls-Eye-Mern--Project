@@ -73,11 +73,3 @@ It helps students:
 - Track performance efficiently  
 
 ---
-
-## 🚀 Installation & Setup
-
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/ai-quiz-generator.git
-cd ai-quiz-generator
