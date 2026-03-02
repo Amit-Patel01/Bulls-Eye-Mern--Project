@@ -24,8 +24,9 @@ If you would like to use this project as reference, please contact the project a
 
 ## 🎥 Project Demo
 
-![Project Demo](assets/demo.gif)
+🚧 The demo is currently under development.
 
+The project is in active development phase.
 ---
 
 ## 👥 Group Project – 6th Semester
@@ -72,11 +73,3 @@ It helps students:
 - Track performance efficiently  
 
 ---
-
-## 🚀 Installation & Setup
-
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/ai-quiz-generator.git
-cd ai-quiz-generator
