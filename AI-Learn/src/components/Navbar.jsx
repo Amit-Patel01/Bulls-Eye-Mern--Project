@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, ChatBubbleLeftIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+import NavbarChat from './NavbarChat'
 
 const navigation = [
   { name: 'Home', to: '/', current: true },
@@ -16,8 +18,12 @@ function classNames(...classes) {
 }
 
 export default function Navbar({ user, onSignOut }) {
+  const [chatOpen, setChatOpen] = useState(false)
+  
   return (
-    <Disclosure as="nav" className="sticky top-0 z-50 bg-white shadow-md">
+    <>
+      <NavbarChat isOpen={chatOpen} onClose={() => setChatOpen(false)} />
+      <Disclosure as="nav" className="sticky top-0 z-50 bg-white shadow-md">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
 
@@ -65,6 +71,17 @@ export default function Navbar({ user, onSignOut }) {
           {/* Right Side Icons */}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
+            {/* Chat Button */}
+            <button
+              type="button"
+              onClick={() => setChatOpen(true)}
+              className="relative rounded-full p-1 text-gray-600 hover:text-indigo-600 focus:outline-none transition"
+              title="Ask AI Assistant"
+            >
+              <span className="sr-only">Chat with AI</span>
+              <ChatBubbleLeftIcon className="h-6 w-6" />
+            </button>
+
             {/* Notification Button */}
             <button
               type="button"
@@ -92,31 +109,40 @@ export default function Navbar({ user, onSignOut }) {
                 transition
                 className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none"
               >
+                <div className="px-4 py-3 border-b border-gray-200">
+                  <p className="text-sm font-semibold text-gray-900">
+                    {user?.displayName || 'User'}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {user?.email}
+                  </p>
+                </div>
+
                 <MenuItem>
                   {({ active }) => (
-                    <a
-                      href="#"
+                    <Link
+                      to="/settings"
                       className={classNames(
                         active ? 'bg-gray-100' : '',
                         'block px-4 py-2 text-sm text-gray-700'
                       )}
                     >
                       Your profile
-                    </a>
+                    </Link>
                   )}
                 </MenuItem>
 
                 <MenuItem>
                   {({ active }) => (
-                    <a
-                      href="#"
+                    <Link
+                      to="/settings"
                       className={classNames(
                         active ? 'bg-gray-100' : '',
                         'block px-4 py-2 text-sm text-gray-700'
                       )}
                     >
                       Settings
-                    </a>
+                    </Link>
                   )}
                 </MenuItem>
 
@@ -126,7 +152,7 @@ export default function Navbar({ user, onSignOut }) {
                       onClick={onSignOut}
                       className={classNames(
                         active ? 'bg-gray-100' : '',
-                        'block w-full text-left px-4 py-2 text-sm text-red-600'
+                        'block w-full text-left px-4 py-2 text-sm text-red-600 font-semibold border-t border-gray-200 mt-1'
                       )}
                     >
                       Sign out
@@ -160,5 +186,6 @@ export default function Navbar({ user, onSignOut }) {
         </div>
       </DisclosurePanel>
     </Disclosure>
+    </>
   )
 }
