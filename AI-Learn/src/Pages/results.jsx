@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getCurrentUser } from "../firebase";
 
 export default function Results() {
   const [results, setResults] = useState([]);
@@ -14,11 +15,13 @@ export default function Results() {
 
   const fetchResults = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/results");
+      const user = getCurrentUser();
+      const url = user ? `http://localhost:5000/api/results?userId=${encodeURIComponent(user.uid)}` : "http://localhost:5000/api/results";
+      const res = await axios.get(url);
       setResults(res.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)));
       setLoading(false);
     } catch (err) {
-      console.log("Error fetching results");
+      console.log("Error fetching results", err);
       setLoading(false);
     }
   };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getCurrentUser } from "../firebase";
 
 export default function GenerateQuiz() {
   const [materials, setMaterials] = useState([]);
@@ -10,6 +11,7 @@ export default function GenerateQuiz() {
   const [score, setScore] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,6 +33,7 @@ export default function GenerateQuiz() {
       return;
     }
 
+    setErrorMessage(null);
     setLoading(true);
     try {
       const res = await axios.post(
@@ -43,8 +46,16 @@ export default function GenerateQuiz() {
       setSelectedAnswers({});
       setSubmitted(false);
     } catch (err) {
-      console.log("Error generating quiz");
-      alert("Failed to generate quiz. Please try again.");
+      console.log("Error generating quiz", err);
+      let msg = err.response?.data?.message || err.message || "Failed to generate quiz. Please try again.";
+      if (err.response?.data?.details) {
+        msg += "\nDetails: " + err.response.data.details;
+      }
+      if (err.response?.data?.raw) {
+        msg += "\nRaw response: " + err.response.data.raw;
+      }
+      console.error(msg);
+      setErrorMessage(msg);
     } finally {
       setLoading(false);
     }
@@ -71,15 +82,21 @@ export default function GenerateQuiz() {
 
     // Save result to backend
     try {
-      await axios.post("http://localhost:5000/api/save-result", {
+      const user = getCurrentUser();
+      if (!user || !user.uid) {
+        alert("Please log in with Google to save your quiz results.");
+      } else {
+        await axios.post("http://localhost:5000/api/save-result", {
+          userId: user.uid,
         filename: selectedFile,
         score: totalScore,
         totalQuestions: questions.length,
         answers: selectedAnswers,
         timestamp: new Date().toISOString(),
       });
+      }
     } catch (err) {
-      console.log("Error saving result");
+      console.log("Error saving result", err);
     }
   };
 
@@ -98,6 +115,11 @@ export default function GenerateQuiz() {
           <h1 className="text-4xl font-bold text-gray-800 mb-8">Generate Quiz</h1>
 
           <div className="bg-white p-8 rounded-lg shadow-lg">
+            {errorMessage && (
+              <div className="mb-4 p-4 bg-red-100 text-red-800 rounded-lg whitespace-pre-wrap max-h-40 overflow-y-auto">
+                {errorMessage}
+              </div>
+            )}
             <p className="text-gray-700 mb-6">
               Select a study material and generate custom MCQ questions instantly using AI.
             </p>

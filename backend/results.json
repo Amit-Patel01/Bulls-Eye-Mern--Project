@@ -1,1 +1,47 @@
-[]
+[
+  {
+    "id": "1772627533331",
+    "filename": "1772451122498-AI QB.pdf",
+    "score": 3,
+    "totalQuestions": 5,
+    "percentage": 60,
+    "answers": {
+      "0": "A branch of computer science that enables machines to perform tasks that normally require human intelligence",
+      "1": "Machine Learning",
+      "2": "A model-based agent",
+      "3": "Fraud detection",
+      "4": "A* Algorithm"
+    },
+    "timestamp": "2026-03-04T12:32:13.325Z"
+  },
+  {
+    "id": "1772628297683",
+    "filename": "1772628241274-test.pdf",
+    "score": 3,
+    "totalQuestions": 5,
+    "percentage": 60,
+    "answers": {
+      "0": "Incorrect Data Format",
+      "1": "Incorrect Data Format",
+      "2": "Parsing Errors",
+      "3": "Missing Required Fields",
+      "4": "Missing Required Fields"
+    },
+    "timestamp": "2026-03-04T12:44:57.678Z"
+  },
+  {
+    "id": "1772628424637",
+    "filename": "1772628241274-test.pdf",
+    "score": 4,
+    "totalQuestions": 5,
+    "percentage": 80,
+    "answers": {
+      "0": "Incorrect Data Format",
+      "1": "Missing Required Fields",
+      "2": "Incorrect Answer Mapping",
+      "3": "The quiz will be valid",
+      "4": "Incomplete AI Response"
+    },
+    "timestamp": "2026-03-04T12:47:04.632Z"
+  }
+]

@@ -29,8 +29,8 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h4 className="text-white font-semibold mb-4">Contact</h4>
-          <p className="text-sm">support@ailearning.com</p>
-          <p className="text-sm mt-2">Ahmedabad, India</p>
+          <p className="text-sm"></p>
+          <p className="text-sm mt-2"></p>
         </div>
       </div>
 

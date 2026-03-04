@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getCurrentUser } from "../firebase";
 
 export default function Test() {
   const [materials, setMaterials] = useState([]);
@@ -10,6 +11,7 @@ export default function Test() {
   const [score, setScore] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const navigate = useNavigate();
 
@@ -32,6 +34,7 @@ export default function Test() {
       return;
     }
 
+    setErrorMessage(null);
     setLoading(true);
     try {
       const res = await axios.post(
@@ -45,8 +48,16 @@ export default function Test() {
       setSubmitted(false);
       setCurrentQuestion(0);
     } catch (err) {
-      console.log("Error generating test");
-      alert("Failed to generate test. Please try again.");
+      console.log("Error generating test", err);
+      let msg = err.response?.data?.message || err.message || "Failed to generate test. Please try again.";
+      if (err.response?.data?.details) {
+        msg += "\nDetails: " + err.response.data.details;
+      }
+      if (err.response?.data?.raw) {
+        msg += "\nRaw response: " + err.response.data.raw;
+      }
+      console.error(msg);
+      setErrorMessage(msg);
     } finally {
       setLoading(false);
     }
@@ -72,7 +83,12 @@ export default function Test() {
 
     // Save result to backend
     try {
-      await axios.post("http://localhost:5000/api/save-result", {
+      const user = getCurrentUser();
+      if (!user || !user.uid) {
+        alert("Please log in with Google to save your test results.");
+      } else {
+        await axios.post("http://localhost:5000/api/save-result", {
+          userId: user.uid,
         filename: selectedFile,
         score: correctCount,
         totalQuestions: questions.length,
@@ -80,10 +96,11 @@ export default function Test() {
         timestamp: new Date().toISOString(),
       });
 
-      // Redirect to results after saving
-      setTimeout(() => navigate("/results"), 2000);
+        // Redirect to results after saving
+        setTimeout(() => navigate("/results"), 2000);
+      }
     } catch (err) {
-      console.log("Error saving result");
+      console.log("Error saving result", err);
     }
   };
 
@@ -115,6 +132,11 @@ export default function Test() {
           <h1 className="text-4xl font-bold text-gray-800 mb-8">Quiz Test</h1>
 
           <div className="bg-white p-8 rounded-lg shadow-lg">
+            {errorMessage && (
+              <div className="mb-4 p-4 bg-red-100 text-red-800 rounded-lg whitespace-pre-wrap max-h-40 overflow-y-auto">
+                {errorMessage}
+              </div>
+            )}
             <p className="text-gray-700 mb-6">
               Select a study material to start your test. You will be given
               multiple-choice questions based on the material.

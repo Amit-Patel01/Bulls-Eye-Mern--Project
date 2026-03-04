@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon, ChatBubbleLeftIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link, useNavigate } from 'react-router-dom'
 import NavbarChat from './NavbarChat'
+import logo from "../assets/logo.png";
 
 const navigation = [
   { name: 'Home', to: '/', current: true },
@@ -19,6 +20,7 @@ function classNames(...classes) {
 
 export default function Navbar({ user, onSignOut }) {
   const [chatOpen, setChatOpen] = useState(false)
+  const navigate = useNavigate();
   
   return (
     <>
@@ -39,11 +41,11 @@ export default function Navbar({ user, onSignOut }) {
           {/* Logo + Navigation */}
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex shrink-0 items-center">
-              <img
-                alt="Logo"
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                className="h-8 w-auto"
-              />
+<img
+  alt="AI-Learn Logo"
+  src={logo}
+  className="h-10 w-auto"
+/>
             </div>
 
             {/* Desktop Navigation */}
@@ -71,25 +73,8 @@ export default function Navbar({ user, onSignOut }) {
           {/* Right Side Icons */}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
-            {/* Chat Button */}
-            <button
-              type="button"
-              onClick={() => setChatOpen(true)}
-              className="relative rounded-full p-1 text-gray-600 hover:text-indigo-600 focus:outline-none transition"
-              title="Ask AI Assistant"
-            >
-              <span className="sr-only">Chat with AI</span>
-              <ChatBubbleLeftIcon className="h-6 w-6" />
-            </button>
 
-            {/* Notification Button */}
-            <button
-              type="button"
-              className="relative rounded-full p-1 text-gray-600 hover:text-black focus:outline-none"
-            >
-              <span className="sr-only">View notifications</span>
-              <BellIcon className="h-6 w-6" />
-            </button>
+
 
             {/* Profile Dropdown */}
             <Menu as="div" className="relative ml-3">

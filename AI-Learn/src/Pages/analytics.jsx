@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { getCurrentUser } from "../firebase";
 
 export default function Analytics() {
   const [analytics, setAnalytics] = useState(null);
@@ -11,11 +12,13 @@ export default function Analytics() {
 
   const fetchAnalytics = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/analytics");
+      const user = getCurrentUser();
+      const url = user ? `http://localhost:5000/api/analytics?userId=${encodeURIComponent(user.uid)}` : "http://localhost:5000/api/analytics";
+      const res = await axios.get(url);
       setAnalytics(res.data);
       setLoading(false);
     } catch (err) {
-      console.log("Error fetching analytics");
+      console.log("Error fetching analytics", err);
       setLoading(false);
     }
   };
