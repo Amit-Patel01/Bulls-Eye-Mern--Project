@@ -1,17 +1,5 @@
 ---
 
-## ⚠️ Warning
-
-This project is developed as a 6th Semester Academic Group Project.  
-
-🚫 Unauthorized copying, cloning, modification, redistribution, or submission of this project without permission is strictly prohibited.
-
-Any misuse of this source code for academic submission or commercial purposes without proper authorization may lead to disciplinary or legal action.
-
-If you would like to use this project as reference, please contact the project authors first.
-
-© 2026 All Rights Reserved.
-
 # 📘 AI Quiz Generator  
 🚀 Transform Study Material into AI-Powered Quizzes  
 
@@ -22,9 +10,41 @@ If you would like to use this project as reference, please contact the project a
 
 ---
 
+## ⚠️ IMPORTANT WARNING - © 2026 All Rights Reserved
+
+**This project is developed as a 6th Semester Academic Group Project.**
+
+🚫 **STRICTLY PROHIBITED:**
+- Unauthorized copying, cloning, or modification
+- Redistributing or submitting without permission
+- Using for academic submission or commercial purposes
+
+**Any misuse may lead to disciplinary or legal action.**
+
+If you want to use this project as reference, please contact the project authors first.
+
+---
+
 ## 🎥 Project Demo
 
-🚧 The demo is currently under development.
+<!-- Add your demo GIF here -->
+<!-- To add a demo GIF:
+1. Create a GIF of your application (use tools like ScreenToGif, LiceCap, or record your screen)
+2. Save it as 'demo.gif' in the project root or assets folder
+3. Uncomment the line below and update the path:
+![Project Demo](demo.gif)
+-->
+
+**Demo Preview:**
+![Project Demo](https://via.placeholder.com/800x450.png?text=AI+Quiz+Generator+Demo+Placeholder)
+
+> 📝 **Note:** To add your own demo GIF, follow these steps:
+> 1. Record your screen using tools like **ScreenToGif** (Windows), **LiceCap** (Mac), or any screen recording software
+> 2. Save the recording as a GIF file (e.g., `demo.gif`)
+> 3. Place it in the project root directory or `AI-Learn/src/assets/` folder
+> 4. Update the path in the image tag above
+
+---
 
 The project is in active development phase.
 ---
@@ -55,10 +75,73 @@ Currently, the project is in development phase and new features are being added 
 - Tailwind CSS
 - JavaScript
 
-### Backend (In Progress)
-- Node.js / Python
+### Backend
+- Node.js
+- **Ollama AI** (for Chatbot functionality)
 - AI Integration
 - Database Integration
+
+---
+
+## 🤖 AI Chatbot
+
+This project uses **Ollama AI** for the chatbot functionality. The AI-powered chatbot helps students with their queries related to study material and quizzes.
+
+---
+
+## 🚀 How to Run
+
+Follow these steps to run the project locally:
+
+### Prerequisites
+- **Node.js** (v14 or higher)
+- **npm** or **yarn**
+- **Git** for version control
+- **Ollama AI** (for Chatbot - optional, can work without)
+
+### Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd Bulls-Eye-Mern--Project
+   ```
+
+2. **Install Backend Dependencies:**
+   ```bash
+   cd backend
+   npm install
+   ```
+
+3. **Install Frontend Dependencies:**
+   ```bash
+   cd ../AI-Learn
+   npm install
+   ```
+
+### Running the Application
+
+4. **Start Backend Server:**
+   ```bash
+   cd backend
+   node server.js
+   ```
+   - Backend runs on: `http://localhost:5000`
+
+5. **Start Frontend Development Server:**
+   ```bash
+   cd AI-Learn
+   npm run dev
+   ```
+   - Frontend runs on: `http://localhost:5173` (or similar)
+
+### Building for Production
+
+6. **Build Frontend:**
+   ```bash
+   cd AI-Learn
+   npm run build
+   ```
 
 ---
 
