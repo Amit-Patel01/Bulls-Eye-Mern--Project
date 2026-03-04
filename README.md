@@ -25,14 +25,13 @@ If you want to use this project as reference, please contact the project authors
 
 ---
 
-**Demo Preview:**
-![AI Quiz Generator Demo](https://media.giphy.com/media/l378AEZceMwWboAQE/giphy.gif)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ollama/ollama/main/docs/logo.svg" alt="Ollama Logo" width="200"/>
+</p>
 
-> 📝 **Note:** To add your own demo GIF, follow these steps:
-> 1. Record your screen using tools like **ScreenToGif** (Windows), **LiceCap** (Mac), or any screen recording software
-> 2. Save the recording as a GIF file (e.g., `demo.gif`)
-> 3. Place it in the project root directory or `AI-Learn/src/assets/` folder
-> 4. Update the path in the image tag above
+<p align="center">
+  <img src="https://media.giphy.com/media/bcKmIWkUMCjVm8xt3r/giphy.gif" alt="Chat Animation" width="400"/>
+</p>
 
 ---
 
