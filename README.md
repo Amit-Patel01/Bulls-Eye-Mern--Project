@@ -25,18 +25,8 @@ If you want to use this project as reference, please contact the project authors
 
 ---
 
-## 🎥 Project Demo
-
-<!-- Add your demo GIF here -->
-<!-- To add a demo GIF:
-1. Create a GIF of your application (use tools like ScreenToGif, LiceCap, or record your screen)
-2. Save it as 'demo.gif' in the project root or assets folder
-3. Uncomment the line below and update the path:
-![Project Demo](demo.gif)
--->
-
 **Demo Preview:**
-![Project Demo](https://via.placeholder.com/800x450.png?text=AI+Quiz+Generator+Demo+Placeholder)
+![AI Quiz Generator Demo](https://media.giphy.com/media/l378AEZceMwWboAQE/giphy.gif)
 
 > 📝 **Note:** To add your own demo GIF, follow these steps:
 > 1. Record your screen using tools like **ScreenToGif** (Windows), **LiceCap** (Mac), or any screen recording software
@@ -156,3 +146,4 @@ It helps students:
 - Track performance efficiently  
 
 ---
+
