@@ -92,7 +92,7 @@ Follow these steps to run the project locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone 
    cd Bulls-Eye-Mern--Project
    ```
 
