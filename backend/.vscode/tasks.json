@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Backend with Google Gemini",
+			"type": "shell",
+			"command": "npm start",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
