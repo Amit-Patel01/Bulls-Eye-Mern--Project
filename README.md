@@ -1,13 +1,12 @@
 # 🎯 Bulls-Eye MERN Project (6th Semester)
 
-![Demo Animation](./demo.gif)
-*(Note: Please record a short video/gif of your project and save it as `demo.gif` in this directory so it shows up here.)*
-
 ## ⚠️ Important Notice
 **Do Not Copy:** This is a 6th-semester academic project. Please do not copy or plagiarize this repository for your own academic submissions.
 
 **Feedback & Suggestions:** If you find any bugs, mistakes, or have suggestions for improvements, feel free to open an issue or reach out. Constructive feedback is always welcome!
-
+<p align="center">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjZvMWMxamttbmRrNGp2emIweDIyd2tsa3NwdG1ia2t2a2Vqcm5iZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ixYItT9PXRl9f2RqjJ/giphy.gif" width="420" />
+</p>
 ## 🚀 Overview
 Bulls-Eye is a modern MERN (MongoDB, Express.js, React.js, Node.js) web application integrated with AI functionalities. 
 
