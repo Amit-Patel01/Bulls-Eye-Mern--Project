@@ -1,35 +1,32 @@
 import { useState, useEffect } from 'react'
-import { onAuthStateChanged } from 'firebase/auth'
-import { auth, logOut } from './firebase'
+import { getCurrentUser, logOut } from './firebase'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import Login from './components/Login'
-import Signup from './components/Signup'
-import ForgotPassword from './Pages/forgotpassword'
+// signup handled via Google only, page redirects
 import Chatbot from './components/Chatbot'
 import Home from './Pages/home'
 import Upload from "./Pages/upload"
 import GenerateQuiz from './Pages/quiz'
-import Test from './Pages/test'
 import Results from './Pages/results'
 import Analytics from './Pages/analytics'
 import Settings from './Pages/settings'
+// chat page removed; chat is inline on home
 
 function App() {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser)
-      setLoading(false)
-    })
-    return () => unsubscribe()
+    const curr = getCurrentUser();
+    setUser(curr);
+    setLoading(false);
   }, [])
 
   const handleSignOut = async () => {
     try {
       await logOut()
+      setUser(null)
     } catch (error) {
       console.error("Error signing out:", error)
     }
@@ -55,9 +52,7 @@ function App() {
   if (!user) {
     return (
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/" element={<Login onLogin={(u) => setUser(u)} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     )
@@ -71,7 +66,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/quiz" element={<GenerateQuiz />} />
-        <Route path="/test" element={<Test />} />
         <Route path="/results" element={<Results />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />

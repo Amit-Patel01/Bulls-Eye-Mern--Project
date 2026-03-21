@@ -1,1 +1,107 @@
-[]
+[
+  {
+    "id": "1772627533331",
+    "filename": "1772451122498-AI QB.pdf",
+    "score": 3,
+    "totalQuestions": 5,
+    "percentage": 60,
+    "answers": {
+      "0": "A branch of computer science that enables machines to perform tasks that normally require human intelligence",
+      "1": "Machine Learning",
+      "2": "A model-based agent",
+      "3": "Fraud detection",
+      "4": "A* Algorithm"
+    },
+    "timestamp": "2026-03-04T12:32:13.325Z"
+  },
+  {
+    "id": "1772628297683",
+    "filename": "1772628241274-test.pdf",
+    "score": 3,
+    "totalQuestions": 5,
+    "percentage": 60,
+    "answers": {
+      "0": "Incorrect Data Format",
+      "1": "Incorrect Data Format",
+      "2": "Parsing Errors",
+      "3": "Missing Required Fields",
+      "4": "Missing Required Fields"
+    },
+    "timestamp": "2026-03-04T12:44:57.678Z"
+  },
+  {
+    "id": "1772628424637",
+    "filename": "1772628241274-test.pdf",
+    "score": 4,
+    "totalQuestions": 5,
+    "percentage": 80,
+    "answers": {
+      "0": "Incorrect Data Format",
+      "1": "Missing Required Fields",
+      "2": "Incorrect Answer Mapping",
+      "3": "The quiz will be valid",
+      "4": "Incomplete AI Response"
+    },
+    "timestamp": "2026-03-04T12:47:04.632Z"
+  },
+  {
+    "id": "1772772092101",
+    "userId": "tT3IbxWOKHPbIz1blgUNVJ00TDo2",
+    "score": 4,
+    "totalQuestions": 5,
+    "percentage": 80,
+    "answers": {
+      "0": "Invalid data format",
+      "1": "Incorrect Data Format",
+      "2": "Incorrect Answer Mapping",
+      "3": "Parsing Errors",
+      "4": "Incorrect Answer Mapping"
+    },
+    "timestamp": "2026-03-06T04:41:32.094Z"
+  },
+  {
+    "id": "1773044984222",
+    "userId": "tT3IbxWOKHPbIz1blgUNVJ00TDo2",
+    "score": 0,
+    "totalQuestions": 5,
+    "percentage": 0,
+    "answers": {
+      "0": "Missing Required Fields",
+      "1": "Incomplete AI Response",
+      "2": "Parsing Errors",
+      "3": "The quiz will be incomplete",
+      "4": "Missing Required Fields"
+    },
+    "timestamp": "2026-03-09T08:29:44.212Z"
+  },
+  {
+    "id": "1773045089230",
+    "userId": "tT3IbxWOKHPbIz1blgUNVJ00TDo2",
+    "score": 2,
+    "totalQuestions": 5,
+    "percentage": 40,
+    "answers": {
+      "0": "Invalid formatting",
+      "1": "Incorrect answer mapping",
+      "2": "The quiz will be too hard",
+      "3": "JSON format is required but not provided",
+      "4": "The quiz will be valid"
+    },
+    "timestamp": "2026-03-09T08:31:29.220Z"
+  },
+  {
+    "id": "1773923691029",
+    "userId": "hh8jM7KilGMC3a53XYwckHxzkYA3",
+    "score": 3,
+    "totalQuestions": 5,
+    "percentage": 60,
+    "answers": {
+      "0": "AI quiz failure",
+      "1": "Incorrect Data Format",
+      "2": "Incomplete AI Response",
+      "3": "Incorrect Answer Mapping",
+      "4": "Parsing Errors"
+    },
+    "timestamp": "2026-03-19T12:34:51.019Z"
+  }
+]

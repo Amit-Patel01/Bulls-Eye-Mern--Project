@@ -1,0 +1,16 @@
+name: Deploy to Render & Vercel
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Deployment
+        run: |
+          echo "🚀 Deployment triggered!"
+          echo "- Backend will auto-deploy on Render (if webhook configured)"
+          echo "- Frontend will auto-deploy on Vercel (if connected)"
+          echo "This workflow is informational. Real deployments happen via Render/Vercel webhooks."

@@ -1,13 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { 
-  getAuth, 
-  GoogleAuthProvider, 
-  signInWithPopup, 
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
   signOut,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   updateProfile,
-  sendPasswordResetEmail
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -29,28 +26,19 @@ export const signInWithGoogle = () => {
   return signInWithPopup(auth, googleProvider);
 };
 
-// Email/Password Sign Up
-export const signUpWithEmail = (email, password, displayName) => {
-  return createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      return updateProfile(userCredential.user, {
-        displayName: displayName
-      }).then(() => userCredential.user);
-    });
+// sign out
+export const logOut = async () => {
+  await signOut(auth);
+  localStorage.removeItem('user');
 };
 
-// Email/Password Sign In
-export const signInWithEmail = (email, password) => {
-  return signInWithEmailAndPassword(auth, email, password);
-};
+// helpers for local storage to keep previous logic working
+export function setCurrentUser(user) {
+  localStorage.setItem('user', JSON.stringify(user));
+}
+export function getCurrentUser() {
+  const u = localStorage.getItem('user');
+  return u ? JSON.parse(u) : null;
+}
 
-// Forgot Password
-export const resetPassword = (email) => {
-  return sendPasswordResetEmail(auth, email);
-};
-
-// Sign Out
-export const logOut = () => {
-  return signOut(auth);
-};
 

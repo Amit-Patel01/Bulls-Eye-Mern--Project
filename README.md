@@ -1,75 +1,72 @@
----
+# 🎯 Bulls-Eye MERN Project (6th Semester)
 
-## ⚠️ Warning
+![Demo Animation](./demo.gif)
+*(Note: Please record a short video/gif of your project and save it as `demo.gif` in this directory so it shows up here.)*
 
-This project is developed as a 6th Semester Academic Group Project.  
+## ⚠️ Important Notice
+**Do Not Copy:** This is a 6th-semester academic project. Please do not copy or plagiarize this repository for your own academic submissions.
 
-🚫 Unauthorized copying, cloning, modification, redistribution, or submission of this project without permission is strictly prohibited.
+**Feedback & Suggestions:** If you find any bugs, mistakes, or have suggestions for improvements, feel free to open an issue or reach out. Constructive feedback is always welcome!
 
-Any misuse of this source code for academic submission or commercial purposes without proper authorization may lead to disciplinary or legal action.
+## 🚀 Overview
+Bulls-Eye is a modern MERN (MongoDB, Express.js, React.js, Node.js) web application integrated with AI functionalities. 
 
-If you would like to use this project as reference, please contact the project authors first.
+## 🛠️ Technology Stack
+### Frontend (AI-Learn)
+- **React 19** with **Vite**
+- **Tailwind CSS & PostCSS** for sleek UI
+- **Firebase** integration
+- **React Router** for navigation
 
-© 2026 All Rights Reserved.
+### Backend
+- **Node.js & Express** 
+- **MongoDB** with **Mongoose**
+- **Google Generative AI (Gemini)** for smart features
+- **Multer** for file uploads
+- **Bcrypt, Helmet.js & Express Rate Limit** for security
 
-# 📘 AI Quiz Generator  
-🚀 Transform Study Material into AI-Powered Quizzes  
+## ⚙️ Setup Instructions
 
-![Status](https://img.shields.io/badge/Status-Under%20Development-yellow)
-![Semester](https://img.shields.io/badge/Semester-6th-green)
-![React](https://img.shields.io/badge/Frontend-React-blue)
-![Tailwind](https://img.shields.io/badge/UI-TailwindCSS-38B2AC)
+### Prerequisites
+- Node.js installed
+- MongoDB connection string
+- Google Gemini API Key
 
----
+### 1. Clone the repository
+```bash
+git clone <your-repository-url>
+cd bullsmearn
+```
 
-## 🎥 Project Demo
+### 2. Backend Setup
+```bash
+cd backend
+npm install
+```
+Create a `.env` file in the `backend` directory (do NOT commit this file):
+```env
+NODE_ENV=development
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+GOOGLE_API_KEY=your_google_gemini_api_key
+```
+Start the backend server:
+```bash
+npm run dev
+```
 
-🚧 The demo is currently under development.
+### 3. Frontend Setup
+```bash
+cd ../AI-Learn
+npm install
+```
+Start the frontend development server:
+```bash
+npm run dev
+```
 
-The project is in active development phase.
----
+## 🔐 Security Information
+To prevent sensitive data leaks, the `.gitignore` explicitly blocks `.env` files and `node_modules` from being pushed to public repositories. Ensure your `.env` contains your actual keys and is **never** uploaded!
 
-## 👥 Group Project – 6th Semester
-
-This project is developed as a **6th Semester Group Project**.  
-Currently, the project is in development phase and new features are being added continuously.
-
----
-
-## ✨ Features
-
-- 📂 Upload Study Material (PDF / Notes)
-- 🤖 AI-Based MCQ Generation
-- 📝 Take Real-Time Tests
-- 📊 Instant Result Evaluation
-- 📈 Performance Analytics
-- 🎨 Clean & Modern UI
-- 📱 Fully Responsive Design
-
----
-
-## 🖥 Tech Stack
-
-### Frontend
-- React.js
-- Tailwind CSS
-- JavaScript
-
-### Backend (In Progress)
-- Node.js / Python
-- AI Integration
-- Database Integration
-
----
-
-## 🎯 Project Objective
-
-The main objective of this project is to transform static study material into interactive quizzes using Artificial Intelligence.  
-
-It helps students:
-- Improve self-assessment  
-- Practice topic-wise MCQs  
-- Save preparation time  
-- Track performance efficiently  
-
----
+## 🤝 Contributing
+Suggestions and code improvements are welcome. Please open an issue to discuss any changes.
